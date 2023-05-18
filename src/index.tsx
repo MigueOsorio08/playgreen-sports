@@ -1,4 +1,4 @@
-import {firebaseConfig} from './firebaseConfig';
+import {firebaseConfig} from './firebase/credenciales';
 import { FirebaseAppProvider } from 'reactfire';
 // import firebase from 'firebase/app';
 import 'firebase/firestore';

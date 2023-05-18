@@ -1,3 +1,7 @@
+import {firebaseConfig} from './firebaseConfig';
+import { FirebaseAppProvider } from 'reactfire';
+// import firebase from 'firebase/app';
+import 'firebase/firestore';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -8,9 +12,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </FirebaseAppProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

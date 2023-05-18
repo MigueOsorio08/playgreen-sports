@@ -5,7 +5,7 @@ import '../style/login.css';
 // import loginGoogle from '../functions/loginGoogle';
 
 function Login() {
-    const [isLoggingIn, setIsLoggingIn] = useState(false);
+    const [isLoggingIn, setIsLoggingIn] = useState(true);
 
     async function submitHandler(e: any) {
         e.preventDefault();

@@ -131,8 +131,6 @@ function Login() {
     return (
         <>
             <FormContainer className='form-container'>
-                <link rel='preconnect' href='https://fonts.gstatic.com' />
-                <link href='https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@400;700&display=swap' rel='stylesheet' />
                 <h1 className='title'>Welcome</h1>
                 <h2 className='form-title'>{isLoggingIn ? "Login" : "Sign up"}</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>

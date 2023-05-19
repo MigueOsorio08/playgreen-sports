@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Home from './views/home';
-import Login from './views/login';
+import Login from './views/appAccess';
 import {auth} from './firebase/credenciales';
 import { onAuthStateChanged } from 'firebase/auth';
 import 'firebase/auth'

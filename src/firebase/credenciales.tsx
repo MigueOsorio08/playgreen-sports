@@ -3,7 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import { initializeApp } from 'firebase/app';
 
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCuPySqyE0-c7o9_gSPJa3y5hyNwbKnHhw",
   authDomain: "playgreen-sport.firebaseapp.com",
   projectId: "playgreen-sport",

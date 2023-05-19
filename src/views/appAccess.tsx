@@ -112,6 +112,19 @@ p{
     font-size:14px;
     font-weight: bold;
 }
+
+@media screen and (min-width: 768px) {
+    .form{
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    p{
+        width: 40%;
+    }
+} 
 `;
 
 function Login() {

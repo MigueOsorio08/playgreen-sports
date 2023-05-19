@@ -13,3 +13,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+main section div.nav {
+  height: 59px;
+  width: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  border-radius: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+main.home section .home,
+main section .home:hover,
+main section .history:hover,
+main.history section .history,
+main section .logout:hover{
+  background-color: #1f1f31;
+  transition:all 0.5s ease-in-out;
+}
+
+main.home .home path,
+main .home:hover path,
+main.history .history path,
+main .history:hover path,
+main section .logout:hover path{
+  fill: white;
+  transition: all 0.5s ease-in-out;
+}

@@ -17,7 +17,9 @@ function App() {
     }
   })
 
-  return user ? <Home user={user} /> : <Login/>
+  let place = user ? <Home user={user} /> : <Login/>
+
+  return place
 }
 
 export default App;

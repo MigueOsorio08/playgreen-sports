@@ -1,13 +1,23 @@
 import Axios from "axios";
 import React, { useState, useEffect } from "react";
 import logOut from '../functions/logout';
-import '../style/home.css';
+// import '../style/home.css';
+import styled from 'styled-components';
 
 interface Team {
     idTeam: string;
     strTeamBadge: string;
     strTeam: string;
 }
+
+const ThemeSelect = styled.div`
+      
+   `;
+
+const MainContent = styled.div`
+   display: flex;
+   align-items:center;
+   `;   
 
 function Login(user: any) {
     const [teams, setTeams] = useState<Team[]>([]);
@@ -29,18 +39,18 @@ function Login(user: any) {
 
     return (
         <main className="main">
-            <div className="theme-select">
+            <ThemeSelect>
                 Theme
                 <input type="checkbox" name="theme" id="theme" />
-            </div>
-            <div className="main-content">
+            </ThemeSelect>
+            <MainContent className="main-content">
                 {teams.map((team) => (
                     <div key={team.idTeam} id={team.idTeam} className="team">
-                        <img src={team.strTeamBadge} alt={team.strTeam} className="team-image"/>
+                        <img src={team.strTeamBadge} alt={team.strTeam} className="team-image" />
                         <h3 className="team-name">{team.strTeam}</h3>
                     </div>
                 ))}
-            </div>
+            </MainContent>
             <section className="navigation">
                 <div className="home">Home</div>
                 <div className="history">Historial</div>

@@ -1,23 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './views/home';
 import Login from './views/appAccess';
-import {auth} from './firebase/credenciales';
+import { auth } from './firebase/credenciales';
 import { onAuthStateChanged } from 'firebase/auth';
 import 'firebase/auth'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import History from './views/history';
 
 function App() {
   const [user, setUser] = useState<any | null>(null);
+  const [shouldRender, setShouldRender] = useState(false);
 
-  onAuthStateChanged(auth, usuarioFirebase => {
-    if (usuarioFirebase) {
-      setUser(usuarioFirebase);
-    }else{
-      setUser(null);
-    }
-  })
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setUser(usuarioFirebase);
+      } else {
+        setUser(null);
+      }
+      setShouldRender(true);
+    });
 
-  return user ? <Home user={user} /> : <Login/>
+    return () => unsubscribe();
+
+  }, []);
+
+  const usuario = user ? true : false;
+  const location = sessionStorage.getItem("location");
+
+  if (!shouldRender) {
+    return null;
+  }
+
+  return (
+    <>
+      {usuario && location === "history" ? (
+        <>
+          <History user={user}/>
+          <ToastContainer />
+        </>
+      ) : (
+        <>
+          {usuario ? (
+            <>
+              <Home user={user} />
+              <ToastContainer />
+            </>
+          ) : (
+            <>
+              <Login />
+              <ToastContainer />
+            </>
+          )}
+        </>
+      )}
+    </>
+  );
 }
 
 export default App;

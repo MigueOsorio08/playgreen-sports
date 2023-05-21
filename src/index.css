@@ -1,6 +1,8 @@
+@import url(https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@400;700&display=swap);
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +12,33 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+main section div.nav {
+  height: 59px;
+  width: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  border-radius: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+main .home section .home-nav,
+main section .home-nav:hover,
+main section .history-nav:hover,
+main .history section .history-nav,
+main section .logout:hover{
+  background-color: #1f1f31;
+  transition:all 0.5s ease-in-out;
+}
+
+main .home .home-nav path,
+main .home-nav:hover path,
+main .history .history-nav path,
+main .history-nav:hover path,
+main section .logout:hover path{
+  fill: white;
+  transition: all 0.5s ease-in-out;
 }

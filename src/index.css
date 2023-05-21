@@ -25,19 +25,19 @@ main section div.nav {
   box-sizing: border-box;
 }
 
-main.home section .home,
-main section .home:hover,
-main section .history:hover,
-main.history section .history,
+main .home section .home-nav,
+main section .home-nav:hover,
+main section .history-nav:hover,
+main .history section .history-nav,
 main section .logout:hover{
   background-color: #1f1f31;
   transition:all 0.5s ease-in-out;
 }
 
-main.home .home path,
-main .home:hover path,
-main.history .history path,
-main .history:hover path,
+main .home .home-nav path,
+main .home-nav:hover path,
+main .history .history-nav path,
+main .history-nav:hover path,
 main section .logout:hover path{
   fill: white;
   transition: all 0.5s ease-in-out;

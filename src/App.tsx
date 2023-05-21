@@ -20,10 +20,10 @@ function App() {
       } else {
         setUser(null);
       }
-      setShouldRender(true); // Actualizar la variable de estado para permitir la renderización
+      setShouldRender(true);
     });
 
-    return () => unsubscribe(); // Limpiar el listener en el efecto de limpieza
+    return () => unsubscribe();
 
   }, []);
 
@@ -31,7 +31,7 @@ function App() {
   const location = sessionStorage.getItem("location");
 
   if (!shouldRender) {
-    return null; // No renderizar nada mientras se carga la autenticación
+    return null;
   }
 
   return (
@@ -39,6 +39,7 @@ function App() {
       {usuario && location === "history" ? (
         <>
           <History user={user}/>
+          <ToastContainer />
         </>
       ) : (
         <>
@@ -50,6 +51,7 @@ function App() {
           ) : (
             <>
               <Login />
+              <ToastContainer />
             </>
           )}
         </>

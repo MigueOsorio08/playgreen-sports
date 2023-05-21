@@ -6,14 +6,25 @@ import styled from 'styled-components';
 // import loginGoogle from '../functions/loginGoogle';
 
 const FormContainer = styled.section`
-background-color: #181828;
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100vw;
-height: 100vh;
-flex-direction: column;
-color: white;
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+    
+    .form-container.dark{
+    color: white;
+    background-color: #181828;
+    }
+
+ .light{
+    background: #e5e5e5;
+    color: black;
+  }
+
 
 * {
     box-sizing: border-box;
@@ -62,6 +73,12 @@ p{
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.form-container.light form .form-group{
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+
 .form .form-group label{
     cursor: pointer;
     font-size: 14px;
@@ -74,6 +91,11 @@ p{
     border: none;
     background-color: #2f2f43;
     color: white;
+}
+
+.form-container.light .form .form-group input{
+    background-color: white;
+    color: black;
 }
 
 .form .form-group input:focus{
@@ -94,6 +116,12 @@ p{
     font-weight: 400;
     margin-bottom: 1rem;
     cursor: pointer;
+}
+
+.form-container.light .form .change{
+    color: rgba(35,34,50,0.8);
+    background-color: #e5e5e5;
+    
 }
 
 .form .submit{
@@ -143,22 +171,24 @@ function Login() {
 
     return (
         <>
-            <FormContainer className='form-container'>
-                <h1 className='title'>Welcome</h1>
-                <h2 className='form-title'>{isLoggingIn ? "Login" : "Sign up"}</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <form className="form flex" onSubmit={submitHandler}>
-                    <div className="form-group">
-                        <label htmlFor="username">User</label>
-                        <input type="email" id="username" required placeholder='email' />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name='password' required minLength={6} maxLength={16} placeholder="Password" />
-                    </div>
-                    <button className="change" onClick={() => setIsLoggingIn(!isLoggingIn)}>{isLoggingIn ? "Don't have a account? Register" : "Already registered? Login"}</button>
-                    <button className='submit' type="submit" id="login">{isLoggingIn ? "Login" : "Sign up"}</button>
-                </form>
+            <FormContainer>
+                <div className={sessionStorage.getItem("theme") === "dark" || sessionStorage.getItem("theme") === "" ? 'form-container dark' : 'form-container light'}>
+                    <h1 className='title'>Welcome</h1>
+                    <h2 className='form-title'>{isLoggingIn ? "Login" : "Sign up"}</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <form className="form flex" onSubmit={submitHandler}>
+                        <div className="form-group">
+                            <label htmlFor="username">User</label>
+                            <input type="email" id="username" required placeholder='email' />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <input type="password" id="password" name='password' required minLength={6} maxLength={16} placeholder="Password" />
+                        </div>
+                        <button className="change" onClick={() => setIsLoggingIn(!isLoggingIn)}>{isLoggingIn ? "Don't have a account? Register" : "Already registered? Login"}</button>
+                        <button className='submit' type="submit" id="login">{isLoggingIn ? "Login" : "Sign up"}</button>
+                    </form>
+                </div>
             </FormContainer>
         </>
     );

@@ -15,11 +15,11 @@ const Nav = styled.section`
 `;
 
 const home = () => {
-    console.log("Ir a home")
+    sessionStorage.setItem("location","home")
 }
 
 const history = () => {
-    console.log("ir a history")
+    sessionStorage.setItem("location","history")
 }
 
 const Navigation = () =>{

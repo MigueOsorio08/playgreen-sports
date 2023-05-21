@@ -219,8 +219,7 @@ function Home(user: any) {
         setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
     };
 
-    theme = sessionStorage.get("theme")
-
+    let themes = theme
     
     const themeClass = theme === "dark" ? "dark" : "light";
     const themeText = theme === "dark" ? "🌤️" : "🌙";
@@ -228,7 +227,7 @@ function Home(user: any) {
     
     return (
         <Main >
-            <div className={"home " + theme}>
+            <div className={"home " + themes}>
                 <ThemeSelect>
                     <div onClick={changeTheme} tabIndex={0} className="theme">{themeText}</div>
                 </ThemeSelect>

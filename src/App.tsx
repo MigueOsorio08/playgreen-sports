@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './views/home';
 import Login from './views/appAccess';
@@ -7,26 +7,55 @@ import { onAuthStateChanged } from 'firebase/auth';
 import 'firebase/auth'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import History from './views/history';
 
 function App() {
   const [user, setUser] = useState<any | null>(null);
+  const [shouldRender, setShouldRender] = useState(false);
 
-  onAuthStateChanged(auth, usuarioFirebase => {
-    if (usuarioFirebase) {
-      setUser(usuarioFirebase);
-    } else {
-      setUser(null);
-    }
-  })
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setUser(usuarioFirebase);
+      } else {
+        setUser(null);
+      }
+      setShouldRender(true); // Actualizar la variable de estado para permitir la renderización
+    });
 
-  let place = user ? <Home user={user} /> : <Login />
+    return () => unsubscribe(); // Limpiar el listener en el efecto de limpieza
+
+  }, []);
+
+  const usuario = user ? true : false;
+  const location = sessionStorage.getItem("location");
+
+  if (!shouldRender) {
+    return null; // No renderizar nada mientras se carga la autenticación
+  }
 
   return (
     <>
-      {place}
-      <ToastContainer />
+      {usuario && location === "history" ? (
+        <>
+          <History user={user}/>
+        </>
+      ) : (
+        <>
+          {usuario ? (
+            <>
+              <Home user={user} />
+              <ToastContainer />
+            </>
+          ) : (
+            <>
+              <Login />
+            </>
+          )}
+        </>
+      )}
     </>
-  )
+  );
 }
 
 export default App;

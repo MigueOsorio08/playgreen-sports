@@ -15,11 +15,13 @@ const Nav = styled.section`
 `;
 
 const home = () => {
-    sessionStorage.setItem("location","home")
+    sessionStorage.setItem("location","home");
+    window.location.reload();
 }
 
 const history = () => {
-    sessionStorage.setItem("location","history")
+    sessionStorage.setItem("location","history");
+    window.location.reload();
 }
 
 const Navigation = () =>{

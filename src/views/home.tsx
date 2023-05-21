@@ -157,20 +157,20 @@ function Home(user: any) {
     };
 
     const handleCancel = (event: any) => {
-        let id = teams[currentIndex].idTeam
+        let img = teams[currentIndex].strTeamBadge.slice(52, -4)
         const userId = user.user.uid;
         const decision = "cancel";
         const database = getDatabase();
-        set(ref(database, `decisions/${userId}/${id}`), decision);
+        set(ref(database, `decisions/${userId}/${img}`), decision);
         handleNext();
     }
 
     const handleLove = (event: any) => {
-        let id = teams[currentIndex].idTeam
+        let img = teams[currentIndex].strTeamBadge.slice(52, -4)
         const userId = user.user.uid;
         const decision = "like";
         const database = getDatabase();
-        set(ref(database, `decisions/${userId}/${id}`), decision);
+        set(ref(database, `decisions/${userId}/${img}`), decision);
         handleNext();
     }
 

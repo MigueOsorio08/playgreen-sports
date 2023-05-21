@@ -26,6 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,8 +48,10 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://MigueOsorio08.github.io/playgreen-sports",
   "devDependencies": {
     "@types/react-helmet": "^6.1.6",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "gh-pages": "^5.0.0"
   }
 }

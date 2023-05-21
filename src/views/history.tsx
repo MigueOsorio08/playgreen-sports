@@ -71,8 +71,8 @@ const ReturnHome = styled.div`
 const MainContent = styled.div`
    overflow: scroll;
    box-sizing: border-box;
-   width: 90vw;
-   height: 80vh;
+   width: 85vw;
+   height: 75vh;
    justify-content: center;
    margin-top: 30px;
    padding: 5px;

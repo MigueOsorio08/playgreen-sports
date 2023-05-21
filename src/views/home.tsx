@@ -100,7 +100,7 @@ const MainContent = styled.div`
    .team{
        background-color: #e5e5e5;
        width: 100vw;
-       height: 564px;
+       height: 500px;
        padding: 57px 20px 30px 19px;
        box-sizing: border-box;
        display: flex;
@@ -127,7 +127,7 @@ const MainContent = styled.div`
 
    .team .options{
        position: absolute;
-       bottom: -8rem;
+       bottom: -7rem;
        display: flex;
        align-items: center;
        width: inherit;
